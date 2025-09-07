@@ -1,0 +1,10 @@
+{
+  "total_events": 47445,
+  "total_errors": 2555,
+  "runtime_seconds": 5.047413,
+  "average_eps": 9399.865080,
+  "peak_1s_window_eps": 47337,
+  "latency_new_confirm_p50_ns": 2502439,
+  "latency_new_confirm_p90_ns": 4505731,
+  "latency_new_confirm_p99_ns": 4948999
+}
