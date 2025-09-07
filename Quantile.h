@@ -34,7 +34,12 @@ class Quantile
         }
     public:
         explicit Quantile(double quant): q(quant){}
-        inline void reset(){ initialized=false; count=0; }
+        
+        inline void reset()
+        { 
+            initialized=false;
+            count=0;
+        }
 
         inline void insert(uint64_t v)
         {
@@ -90,9 +95,16 @@ class Quantile
         {
             if(!initialized)
             {
-                if(count==0) return 0;
-                double tmp[5]; for(size_t i=0;i<count;i++) tmp[i]=x[i]; std::sort(tmp,tmp+count);
+                if(count==0)
+                    return 0;
+                
+                double tmp[5];
+                for(size_t i=0;i<count;i++) 
+                    tmp[i]=x[i]; 
+                
+                std::sort(tmp,tmp+count);
                 size_t idx = (size_t)floor(q*(count-1)+0.5);
+                
                 return (uint64_t) llround(tmp[idx]);
             }
             return (uint64_t) llround(x[2]);
